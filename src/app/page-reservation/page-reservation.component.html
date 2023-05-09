@@ -1,0 +1,22 @@
+<div class="container">
+    <img src="assets/logo-affluences.png" class="image">
+    <div class="content">
+        <h2 class="title">Check if the resource is available</h2>
+        <div class="input-row">
+            <div>
+                <label for="datepicker"></label>
+                <input id="datepicker" type="date" [(ngModel)]="selectedDate">
+                <label for="timepicker"></label>
+                <select id="timepicker" [(ngModel)]="selectedTime">
+                    <option *ngFor="let time of times" [value]="time">{{ time }}</option>
+                </select>
+                <div class="buttonContainer">
+                    <button class="button" (click)="checkAvailability()">Check availability</button>
+                </div>
+                <div *ngIf="show" [ngClass]="isAvailable ? 'available' : 'unavailable'">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
